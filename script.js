@@ -173,23 +173,6 @@ function getGameHtml(id) {
     <iframe src="https://scratch.mit.edu/projects/105500895/embed" title="Geometry Dash" allowfullscreen></iframe>
   </body>
 </html>`;
-    case "motox3m":
-      return `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
-    <title>DeltaMath</title>
-    <style>
-      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
-      iframe { border: none; width: 100%; height: 100%; display: block; }
-    </style>
-  </head>
-  <body>
-    <iframe src="https://html5gameshq.com/iframed/moto-x3m" title="Moto X3M" allowfullscreen></iframe>
-  </body>
-</html>`;
     case "amongus":
       return `<!DOCTYPE html>
 <html lang="en">
@@ -205,6 +188,57 @@ function getGameHtml(id) {
   </head>
   <body>
     <iframe src="https://skribblio.online/among-us-online-edition" title="Among Us Online Edition" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "minecraft":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://classic.minecraft.net/" title="Minecraft Classic" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "snowrider":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://games.crazygames.com/en_US/snow-rider-3d/index.html" title="Snow Rider 3D" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "helixjump":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://games.crazygames.com/en_US/helix-jump/index.html" title="Helix Jump" allowfullscreen></iframe>
   </body>
 </html>`;
     case "carparking":
@@ -758,4 +792,124 @@ gameButtons.forEach((button) => {
   if (!id) return;
   button.addEventListener("click", () => openGameById(id));
 });
+
+// "This is [word]" — rotating word with cool styling
+const taglineWordEl = document.getElementById("tagline-word");
+if (taglineWordEl) {
+  const words = [
+    "trustworthy",
+    "safe",
+    "unblocked",
+    "private",
+    "secure",
+    "reliable",
+  ];
+  let idx = 0;
+  setInterval(() => {
+    taglineWordEl.classList.add("fade");
+    setTimeout(() => {
+      idx = (idx + 1) % words.length;
+      taglineWordEl.textContent = words[idx];
+      taglineWordEl.classList.remove("fade");
+    }, 250);
+  }, 2200);
+}
+
+// Hide button: switch to educational facade and back
+const hideBtn = document.getElementById("hide-btn");
+const shellTitle = document.getElementById("shell-title");
+const contentEdu = document.getElementById("content-edu");
+
+if (hideBtn && shellTitle && contentEdu) {
+  hideBtn.addEventListener("click", () => {
+    const isEdu = document.body.classList.toggle("mode-edu");
+    if (isEdu) {
+      hideBtn.textContent = "Show";
+      hideBtn.setAttribute("aria-label", "Show games");
+      shellTitle.textContent = "Study Resources";
+      contentEdu.setAttribute("aria-hidden", "false");
+    } else {
+      hideBtn.textContent = "Hide";
+      hideBtn.setAttribute("aria-label", "Toggle view");
+      shellTitle.textContent = "Mini Browser";
+      contentEdu.setAttribute("aria-hidden", "true");
+    }
+  });
+}
+
+// Settings: theme & layout (persisted in localStorage)
+const SETTINGS_KEY = "phantom-learning-settings";
+
+function getSettings() {
+  try {
+    const s = localStorage.getItem(SETTINGS_KEY);
+    return s ? JSON.parse(s) : { theme: "dark", layout: "3" };
+  } catch {
+    return { theme: "dark", layout: "3" };
+  }
+}
+
+function saveSettings(theme, layout) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify({ theme, layout }));
+}
+
+function applySettings(theme, layout) {
+  document.body.classList.remove("theme-dark", "theme-light", "theme-blue", "theme-green");
+  document.body.classList.add("theme-" + (theme || "dark"));
+  document.body.classList.remove("layout-cols-2", "layout-cols-3", "layout-cols-4");
+  document.body.classList.add("layout-cols-" + (layout || "3"));
+}
+
+const settingsBtn = document.getElementById("settings-btn");
+const settingsOverlay = document.getElementById("settings-overlay");
+const settingsClose = document.getElementById("settings-close");
+const themeRadios = document.querySelectorAll('input[name="theme"]');
+const layoutRadios = document.querySelectorAll('input[name="layout"]');
+
+if (settingsBtn && settingsOverlay) {
+  settingsBtn.addEventListener("click", () => {
+    settingsOverlay.classList.add("open");
+    settingsOverlay.setAttribute("aria-hidden", "false");
+  });
+}
+
+if (settingsClose && settingsOverlay) {
+  settingsClose.addEventListener("click", () => {
+    settingsOverlay.classList.remove("open");
+    settingsOverlay.setAttribute("aria-hidden", "true");
+  });
+}
+
+if (settingsOverlay) {
+  settingsOverlay.addEventListener("click", (e) => {
+    if (e.target === settingsOverlay) {
+      settingsOverlay.classList.remove("open");
+      settingsOverlay.setAttribute("aria-hidden", "true");
+    }
+  });
+}
+
+themeRadios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    const layout = document.querySelector('input[name="layout"]:checked')?.value || "3";
+    saveSettings(radio.value, layout);
+    applySettings(radio.value, layout);
+  });
+});
+
+layoutRadios.forEach((radio) => {
+  radio.addEventListener("change", () => {
+    const theme = document.querySelector('input[name="theme"]:checked')?.value || "dark";
+    saveSettings(theme, radio.value);
+    applySettings(theme, radio.value);
+  });
+});
+
+// Apply saved settings on load
+const saved = getSettings();
+applySettings(saved.theme, saved.layout);
+const themeChecked = document.querySelector('input[name="theme"][value="' + saved.theme + '"]');
+const layoutChecked = document.querySelector('input[name="layout"][value="' + saved.layout + '"]');
+if (themeChecked) themeChecked.checked = true;
+if (layoutChecked) layoutChecked.checked = true;
 

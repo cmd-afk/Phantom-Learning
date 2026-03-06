@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <button type="button" id="hide-btn" class="hide-btn" aria-label="Toggle view">Hide</button>
+
     <div class="bg-gradient"></div>
     <main class="shell">
       <header class="shell-header">
@@ -16,11 +18,41 @@
           <span class="light yellow"></span>
           <span class="light green"></span>
         </div>
-        <div class="shell-title">Mini Browser</div>
+        <div class="shell-title" id="shell-title">Mini Browser</div>
+        <button type="button" id="settings-btn" class="settings-btn" aria-label="Settings" title="Settings">⚙</button>
       </header>
 
-      <section class="content">
-        <h1 class="title">Play a game</h1>
+      <div id="settings-overlay" class="settings-overlay" aria-hidden="true">
+        <div class="settings-panel">
+          <div class="settings-header">
+            <h2 class="settings-title">Settings</h2>
+            <button type="button" id="settings-close" class="settings-close" aria-label="Close">×</button>
+          </div>
+          <div class="settings-body">
+            <fieldset class="settings-group">
+              <legend class="settings-legend">Color theme</legend>
+              <div class="settings-options">
+                <label class="settings-option"><input type="radio" name="theme" value="dark" checked /> Dark</label>
+                <label class="settings-option"><input type="radio" name="theme" value="light" /> Light</label>
+                <label class="settings-option"><input type="radio" name="theme" value="blue" /> Blue</label>
+                <label class="settings-option"><input type="radio" name="theme" value="green" /> Green</label>
+              </div>
+            </fieldset>
+            <fieldset class="settings-group">
+              <legend class="settings-legend">Layout</legend>
+              <div class="settings-options">
+                <label class="settings-option"><input type="radio" name="layout" value="2" /> 2 columns</label>
+                <label class="settings-option"><input type="radio" name="layout" value="3" checked /> 3 columns</label>
+                <label class="settings-option"><input type="radio" name="layout" value="4" /> 4 columns</label>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <section class="content content-games">
+        <h1 class="title title-phantom">Phantom Learning</h1>
+        <p class="tagline-intro">This is <span class="tagline-word" id="tagline-word" aria-live="polite">trustworthy</span></p>
         <p class="subtitle">Click a game to open it in an about:blank window.</p>
 
         <div class="games-grid">
@@ -130,19 +162,66 @@
 
           <button
             class="game-button"
-            data-game-id="motox3m"
-          >
-            <span class="game-title">Moto X3M</span>
-            <span class="game-tagline">Dirt bike stunt racing.</span>
-          </button>
-
-          <button
-            class="game-button"
             data-game-id="amongus"
           >
             <span class="game-title">Among Us Online</span>
             <span class="game-tagline">Crewmates vs impostors in space.</span>
           </button>
+
+          <button
+            class="game-button"
+            data-game-id="minecraft"
+          >
+            <span class="game-title">Minecraft Classic</span>
+            <span class="game-tagline">Build and explore in your browser.</span>
+          </button>
+
+          <button
+            class="game-button"
+            data-game-id="snowrider"
+          >
+            <span class="game-title">Snow Rider 3D</span>
+            <span class="game-tagline">Ski down the slopes in 3D.</span>
+          </button>
+
+          <button
+            class="game-button"
+            data-game-id="helixjump"
+          >
+            <span class="game-title">Helix Jump</span>
+            <span class="game-tagline">Bounce down the helix and avoid the red.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="content content-edu" id="content-edu" aria-hidden="true">
+        <h1 class="edu-main-title">Mathematics &amp; Reading Practice</h1>
+        <p class="edu-subtitle">Grade 7 • Module 3 • Lesson 9</p>
+
+        <div class="edu-tabs">
+          <button type="button" class="edu-tab active">Pre-Algebra</button>
+          <button type="button" class="edu-tab">Proportions</button>
+          <button type="button" class="edu-tab">Reading</button>
+        </div>
+
+        <div class="edu-card">
+          <h2 class="edu-card-title">Lesson 9: One-Step Equations</h2>
+          <p class="edu-text">Solve for <em>x</em>: <em>x</em> + 7 = 15</p>
+          <p class="edu-text">Step: Subtract 7 from both sides → <em>x</em> = 8.</p>
+        </div>
+
+        <div class="edu-card">
+          <h2 class="edu-card-title">Practice Problems</h2>
+          <ol class="edu-list">
+            <li>Solve: <em>x</em> − 4 = 12</li>
+            <li>Solve: 3<em>x</em> = 18</li>
+            <li>Solve: <em>x</em> ÷ 5 = 6</li>
+          </ol>
+        </div>
+
+        <div class="edu-card">
+          <h2 class="edu-card-title">Reading Comprehension</h2>
+          <p class="edu-text">Read the passage and identify the main idea and two supporting details. Use evidence from the text in your response.</p>
         </div>
       </section>
     </main>
