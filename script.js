@@ -1,7 +1,212 @@
 const gameButtons = document.querySelectorAll(".game-button");
 
 function getGameHtml(id) {
+  const scriptClose = "</scr" + "ipt>";
   switch (id) {
+    case "tetrix":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #fff; }
+      div { height: 100%; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <div><script src="https://cdn.htmlgames.com/embed.js?game=Tetrix3D&amp;bgcolor=white">${scriptClose}</div>
+  </body>
+</html>`;
+    case "brainrot":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://html5.gamemonetize.co/hlosul26ikds620fydnpi3nmsb367uv8/" title="Steal a Brainrot" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "stickman":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://html5.gamemonetize.co/x3axo95l28dooujainl5kfjrib9dklth/" title="Stickman Hooks" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "bottleflip":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://html5.gamemonetize.co/1zbs0j6e29n7jeobrg5ih1g16agjqv7w/" title="Bottle Flip Game" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "slope":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://storage.y8.com/y8-studio/unity/joll/slope/?key=9757549&amp;value=80527" title="Slope" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "2048":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://funhtml5games.com?embed=2048bit" title="2048" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "mario":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://www.retrogames.cc/embed/16843-super-mario-bros-japan-usa.html" title="Super Mario Bros (Japan, USA)" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "mariokart64":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://www.retrogames.cc/embed/32603-mario-kart-64-usa.html" title="Mario Kart 64 (USA)" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "linerider":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://games.crazygames.com/en_US/line-rider/index.html" title="Line Rider" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "geometrydash":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://scratch.mit.edu/projects/105500895/embed" title="Geometry Dash" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "motox3m":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://html5gameshq.com/iframed/moto-x3m" title="Moto X3M" allowfullscreen></iframe>
+  </body>
+</html>`;
+    case "amongus":
+      return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path fill='%232d3748' d='M8 11L24 11L22 15L10 15Z'/><path fill='%232d3748' d='M10 15L22 15L21 17L11 17Z'/><line x1='24' y1='11' x2='24' y2='20' stroke='%232d3748' stroke-width='1.5'/><circle cx='24' cy='13' r='1.2' fill='%232d3748'/><path fill='%232d3748' d='M23 20l1 4 2-1-1-3z'/></svg>" />
+    <title>DeltaMath</title>
+    <style>
+      html, body { margin: 0; padding: 0; height: 100%; width: 100%; background: #000; }
+      iframe { border: none; width: 100%; height: 100%; display: block; }
+    </style>
+  </head>
+  <body>
+    <iframe src="https://skribblio.online/among-us-online-edition" title="Among Us Online Edition" allowfullscreen></iframe>
+  </body>
+</html>`;
     case "carparking":
       return `<!DOCTYPE html>
 <html lang="en">
