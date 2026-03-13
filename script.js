@@ -77,7 +77,7 @@
   function renderButton() {
     if (!window.google || !google.accounts || !google.accounts.id) return;
     google.accounts.id.initialize({
-      client_id: "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+      client_id: "63209395731-tephp15b5gsdju56ek0cq6of06q7djoj.apps.googleusercontent.com",
       callback: window.handleGoogleCredentialResponse,
     });
     google.accounts.id.renderButton(loginBtn, {
