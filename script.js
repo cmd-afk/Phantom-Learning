@@ -4,34 +4,7 @@
   var loadingPhase = document.getElementById("loading-phase");
   var connectedPhase = document.getElementById("connected-phase");
   var loginPhase = document.getElementById("google-login-phase");
-  var SKIP_KEY = "phantom-skip-google-login";
   if (!screen || !loadingPhase || !connectedPhase || !loginPhase) return;
-
-  function hasSkipFlag() {
-    try {
-      return localStorage.getItem(SKIP_KEY) === "1";
-    } catch (e) {
-      return false;
-    }
-  }
-
-  function setSkipFlag() {
-    try {
-      localStorage.setItem(SKIP_KEY, "1");
-    } catch (e) {}
-  }
-
-  // Make skip setter available to Google login callback
-  window.__phantomSetGoogleSkip = setSkipFlag;
-
-  // If we've already logged in once (or came via redirect.html), skip loading + login entirely
-  if (hasSkipFlag()) {
-    loadingPhase.hidden = true;
-    loginPhase.hidden = true;
-    connectedPhase.hidden = true;
-    screen.classList.add("loading-done");
-    return;
-  }
 
   // Initial state: show loading, hide login & connected
   loadingPhase.hidden = false;
@@ -50,7 +23,6 @@
 
   // Expose a callback for Google sign-in success to continue the sequence
   window.__phantomOnGoogleLoginSuccess = function () {
-    if (window.__phantomSetGoogleSkip) window.__phantomSetGoogleSkip();
     loginPhase.hidden = true;
     connectedPhase.hidden = false;
     connectedPhase.classList.add("connected-visible");
