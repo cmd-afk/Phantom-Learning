@@ -3,7 +3,7 @@
  *
  * SETUP:
  * 1. Create a Google Sheet (or use an existing one).
- * 2. Add a header row in row 1, e.g.: Timestamp | Email | Name
+ * 2. Add a header row in row 1, e.g.: Timestamp | Email | Name | Blocked
  * 3. In the Sheet: Extensions → Apps Script. Paste this entire file.
  * 4. Save, then Deploy → New deployment → type "Web app".
  *    - Execute as: Me
@@ -20,12 +20,14 @@ function doPost(e) {
       body = JSON.parse(e.postData.contents);
     }
     if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "Email", "Name"]);
+      sheet.appendRow(["Timestamp", "Email", "Name", "Blocked"]);
     }
+    var blocked = body.blocked === true || body.blocked === "true" || body.blocked === "Yes";
     var row = [
       body.time || new Date().toISOString(),
       body.email || "",
-      body.name || ""
+      body.name || "",
+      blocked ? "Yes" : "No"
     ];
     sheet.appendRow(row);
     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
