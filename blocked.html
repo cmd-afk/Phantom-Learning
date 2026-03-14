@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Access restricted – Phantom Learning</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%234f46e5' rx='6'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='system-ui,sans-serif' font-weight='bold'>P</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .blocked-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: var(--body-bg);
+        text-align: center;
+      }
+      .blocked-card {
+        width: 100%;
+        max-width: 420px;
+        padding: 2rem 1.5rem;
+        background: linear-gradient(165deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.99) 100%);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-strong), 0 0 0 1px rgba(148, 163, 184, 0.08);
+        color: var(--text);
+      }
+      .blocked-card h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f7fafc;
+      }
+      .blocked-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blocked-page">
+      <div class="blocked-card" role="main">
+        <h1>Access restricted</h1>
+        <p>Your account is not allowed to use Phantom Learning. If you believe this is an error, contact the site administrator.</p>
+      </div>
+    </div>
+  </body>
+</html>
