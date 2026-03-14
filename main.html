@@ -47,69 +47,37 @@
       <section class="content content-games">
         <h1 class="title title-phantom">Phantom Learning</h1>
         <p class="tagline-intro">This is <span class="tagline-word" id="tagline-word" aria-live="polite">trustworthy</span></p>
-        <p class="subtitle">Click a game to open it in an about:blank window.</p>
-
-        <label for="game-search" class="search-label">Search games</label>
-        <input
-          type="search"
-          id="game-search"
-          class="game-search"
-          placeholder="Type to filter games…"
-          autocomplete="off"
-          aria-label="Search games"
-        />
-        <p id="game-count" class="game-count" aria-live="polite"></p>
-
-        <div class="games-grid">
-          <button
-            class="game-button"
-            data-game-id="dodge"
-          >
-            <span class="game-title">Square Dodge</span>
-            <span class="game-tagline">Move left &amp; right, avoid falling blocks.</span>
-          </button>
-
-          <button
-            class="game-button"
-            data-game-id="clicker"
-          >
-            <span class="game-title">Circle Clicker</span>
-            <span class="game-tagline">Click the target as many times as you can.</span>
-          </button>
-
+        <div id="game-area" class="game-area" aria-hidden="true">
+          <p class="subtitle">Click a game to open it in an about:blank window.</p>
+          <label for="game-search" class="search-label">Search games</label>
+          <input
+            type="search"
+            id="game-search"
+            class="game-search"
+            placeholder="Type to filter games…"
+            autocomplete="off"
+            aria-label="Search games"
+          />
+          <p id="game-count" class="game-count" aria-live="polite"></p>
+          <div class="games-grid">
+            <button
+              class="game-button"
+              data-game-id="dodge"
+            >
+              <span class="game-title">Square Dodge</span>
+              <span class="game-tagline">Move left &amp; right, avoid falling blocks.</span>
+            </button>
+            <button
+              class="game-button"
+              data-game-id="clicker"
+            >
+              <span class="game-title">Circle Clicker</span>
+              <span class="game-tagline">Click the target as many times as you can.</span>
+            </button>
           </div>
+        </div>
       </section>
     </main>
-
-    <div id="policies-overlay" class="policies-overlay" aria-hidden="true">
-      <div class="policies-backdrop"></div>
-      <div class="policies-modal" role="dialog" aria-labelledby="policies-title" aria-modal="true">
-        <h2 id="policies-title" class="policies-title">Before you continue</h2>
-        <p class="policies-text">Please make sure to look at all policies before using Phantom Learning.</p>
-        <div class="policies-actions">
-          <a href="https://sites.google.com/view/legal-policys/home" target="_blank" rel="noopener noreferrer" class="policies-btn policies-btn-view">View policies</a>
-          <button type="button" class="policies-btn policies-btn-continue" id="policies-continue">Continue</button>
-        </div>
-      </div>
-    </div>
-
-    <div id="daily-summary-overlay" class="daily-summary-overlay" aria-hidden="true">
-      <div class="daily-summary-backdrop"></div>
-      <div class="daily-summary-modal" role="dialog" aria-labelledby="daily-summary-title" aria-modal="true">
-        <div class="daily-summary-header">
-          <h2 id="daily-summary-title" class="daily-summary-title">Daily AI Summary</h2>
-          <button type="button" class="daily-summary-close" id="daily-summary-close" aria-label="Close">×</button>
-        </div>
-        <div class="daily-summary-body">
-          <p class="daily-summary-date" id="daily-summary-date"></p>
-          <div class="daily-summary-content" id="daily-summary-content">
-            <p><strong>Changes today</strong></p>
-            <p id="daily-summary-changes">No new games or features added today.</p>
-            <p class="daily-summary-footer">Check back tomorrow for the next summary.</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="ugs-games-list.js"></script>
     <script src="script.js"></script>

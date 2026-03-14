@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        var path = location.pathname.replace(/\/[^/]*$/, '/') || '/';
+        document.write('<base href="' + location.origin + path + '">');
+      })();
+    </script>
+    <title>What’s new – Phantom Learning</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%234f46e5' rx='6'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='system-ui,sans-serif' font-weight='bold'>P</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .update-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: var(--body-bg);
+      }
+      .update-page .daily-summary-modal {
+        max-height: 85vh;
+        overflow: auto;
+      }
+      .update-page .daily-summary-close {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="update-page">
+      <div class="daily-summary-modal" role="dialog" aria-labelledby="daily-summary-title" aria-modal="true">
+        <div class="daily-summary-header">
+          <h2 id="daily-summary-title" class="daily-summary-title">What’s new</h2>
+          <a href="main.html" class="daily-summary-close" id="daily-summary-close" aria-label="Close">×</a>
+        </div>
+        <div class="daily-summary-body">
+          <p class="daily-summary-date" id="daily-summary-date"></p>
+          <div class="daily-summary-content">
+            <p><strong>Changes today</strong></p>
+            <div id="daily-summary-changes">No new games or features added today.</div>
+            <p class="daily-summary-footer">Check back tomorrow for the next summary.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="update-changelog.js"></script>
+    <script>
+      (function() {
+        var dateEl = document.getElementById("daily-summary-date");
+        var changesEl = document.getElementById("daily-summary-changes");
+        var today = new Date().toDateString();
+        if (dateEl) dateEl.textContent = "Summary for " + today;
+        if (typeof window.DAILY_CHANGELOG !== "undefined") {
+          var items = window.DAILY_CHANGELOG[today] || null;
+          if (items && items.length) {
+            changesEl.innerHTML = "<ul>" + items.map(function(s) { return "<li>" + s + "</li>"; }).join("") + "</ul>";
+          } else {
+            changesEl.textContent = "No new games or features added today.";
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

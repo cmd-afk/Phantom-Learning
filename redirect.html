@@ -62,9 +62,9 @@
             }
           }
         } catch (e) {}
-        var target = "main.html";
+        var target = "policy.html";
         if (location.pathname && location.pathname.indexOf("redirect") !== -1) {
-          target = location.pathname.replace("redirect.html", "main.html");
+          target = location.pathname.replace("redirect.html", "policy.html");
         }
         location.replace(target);
       })();

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        var path = location.pathname.replace(/\/[^/]*$/, '/') || '/';
+        document.write('<base href="' + location.origin + path + '">');
+      })();
+    </script>
+    <title>Before you continue – Phantom Learning</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%234f46e5' rx='6'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='system-ui,sans-serif' font-weight='bold'>P</text></svg>" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .policy-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        background: var(--body-bg);
+      }
+      .policy-card {
+        width: 100%;
+        max-width: 420px;
+        padding: 1.75rem 1.5rem;
+        background: linear-gradient(165deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.99) 100%);
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-strong), 0 0 0 1px rgba(148, 163, 184, 0.08);
+        color: var(--text);
+      }
+      .policy-card .policies-title { margin: 0 0 1rem; font-size: 1.35rem; font-weight: 700; letter-spacing: 0.02em; color: #f7fafc; }
+      .policy-card .policies-text { margin: 0 0 1.5rem; font-size: 0.95rem; line-height: 1.6; color: var(--muted); }
+      .policy-card .policies-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: flex-end; }
+      .policy-card .policies-btn { padding: 0.6rem 1.25rem; font-size: 0.95rem; font-weight: 600; border-radius: 10px; border: none; cursor: pointer; text-decoration: none; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; display: inline-block; text-align: center; }
+      .policy-card .policies-btn-view { background: rgba(99, 102, 241, 0.25); color: #a5b4fc; border: 1px solid rgba(129, 140, 248, 0.4); }
+      .policy-card .policies-btn-view:hover { background: rgba(99, 102, 241, 0.4); color: #c7d2fe; }
+      .policy-card .policies-btn-continue { background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #fff; }
+      .policy-card .policies-btn-continue:hover { background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%); transform: scale(1.02); }
+    </style>
+  </head>
+  <body>
+    <div class="policy-page">
+      <div class="policy-card" role="main">
+        <h1 id="policies-title" class="policies-title">Before you continue</h1>
+        <p class="policies-text">Please make sure to look at all policies before using Phantom Learning.</p>
+        <div class="policies-actions">
+          <a href="https://sites.google.com/view/legal-policys/home" target="_blank" rel="noopener noreferrer" class="policies-btn policies-btn-view">View policies</a>
+          <a href="update.html" id="policy-continue" class="policies-btn policies-btn-continue">Continue</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function() {
+        var POLICIES_KEY = "phantom-policies-ack";
+        var link = document.getElementById("policy-continue");
+        if (!link) return;
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          try { localStorage.setItem(POLICIES_KEY, "1"); } catch (err) {}
+          location.replace("update.html");
+        });
+      })();
+    </script>
+  </body>
+</html>
