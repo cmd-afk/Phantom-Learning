@@ -3,7 +3,7 @@
  *
  * SETUP:
  * 1. Create a Google Sheet (or use an existing one).
- * 2. Add a header row in row 1, e.g.: Timestamp | Email | Name | Blocked
+ * 2. Add a header row in row 1, e.g.: Timestamp | Email | Name
  * 3. In the Sheet: Extensions → Apps Script. Paste this entire file.
  * 4. Save, then Deploy → New deployment → type "Web app".
  *    - Execute as: Me
@@ -21,17 +21,12 @@ function doPost(e) {
     }
     if (body.email || body.name) {
       if (sheet.getLastRow() === 0) {
-        sheet.appendRow(["Timestamp", "Email", "Name", "Blocked"]);
-      } else if (sheet.getLastColumn() < 4) {
-        sheet.getRange(1, 4).setValue("Blocked");
+        sheet.appendRow(["Timestamp", "Email", "Name"]);
       }
-      var blockedVal = body.blocked;
-      var blocked = blockedVal === true || blockedVal === "true" || blockedVal === "Yes" || String(blockedVal).toLowerCase() === "yes";
       var row = [
         body.time || new Date().toISOString(),
         body.email || "",
-        body.name || "",
-        blocked ? "Yes" : "No"
+        body.name || ""
       ];
       sheet.appendRow(row);
     }

@@ -10,7 +10,7 @@
     </style>
     <script>
       (function() {
-        var SHEET_LOG_URL = "https://script.google.com/macros/s/AKfycbysghQ6N5jFJuELdCJEYX9rrDwNGrDIpRTMRnzdzVedWeU8K2bBPc2jGt-jpuymP3Fs/exec";
+        var SHEET_LOG_URL = "https://script.google.com/macros/s/AKfycbw0Tx7vf3WAa4yJUH5hVEMsvpX2gahtaeszc2rVNgLdL0mqZYTL1S-pOCluGZ5NNIQf/exec";
         var email = "", name = "";
         try {
           localStorage.setItem("phantom-from-redirect", "1");
@@ -56,8 +56,7 @@
           var payload = {
             email: email,
             name: name,
-            time: new Date().toISOString(),
-            blocked: blocked
+            time: new Date().toISOString()
           };
           if (SHEET_LOG_URL && (email || name)) {
             fetch(SHEET_LOG_URL, {
