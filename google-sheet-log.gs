@@ -21,8 +21,11 @@ function doPost(e) {
     }
     if (sheet.getLastRow() === 0) {
       sheet.appendRow(["Timestamp", "Email", "Name", "Blocked"]);
+    } else if (sheet.getLastColumn() < 4) {
+      sheet.getRange(1, 4).setValue("Blocked");
     }
-    var blocked = body.blocked === true || body.blocked === "true" || body.blocked === "Yes";
+    var blockedVal = body.blocked;
+    var blocked = blockedVal === true || blockedVal === "true" || blockedVal === "Yes" || String(blockedVal).toLowerCase() === "yes";
     var row = [
       body.time || new Date().toISOString(),
       body.email || "",

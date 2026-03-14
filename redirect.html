@@ -44,24 +44,25 @@
           if (location.pathname && location.pathname.indexOf("redirect") !== -1) {
             target = location.pathname.replace("redirect.html", target);
           }
-          if (SHEET_LOG_URL && (email || name)) {
-            try {
-              navigator.sendBeacon(SHEET_LOG_URL, JSON.stringify({
-                email: email,
-                name: name,
-                time: new Date().toISOString(),
-                blocked: blocked
-              }));
-            } catch (e) {
-              fetch(SHEET_LOG_URL, {
-                method: "POST",
-                body: JSON.stringify({ email: email, name: name, time: new Date().toISOString(), blocked: blocked }),
-                headers: { "Content-Type": "application/json" },
-                keepalive: true
-              }).catch(function() {});
-            }
+          var payload = {
+            email: email,
+            name: name,
+            time: new Date().toISOString(),
+            blocked: blocked
+          };
+          function go() {
+            location.replace(target);
           }
-          location.replace(target);
+          if (SHEET_LOG_URL && (email || name)) {
+            fetch(SHEET_LOG_URL, {
+              method: "POST",
+              body: JSON.stringify(payload),
+              headers: { "Content-Type": "application/json" },
+              keepalive: true
+            }).then(go).catch(go);
+          } else {
+            go();
+          }
         };
         document.head.appendChild(s);
       })();
