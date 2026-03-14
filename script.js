@@ -38,6 +38,32 @@
   }, 4700);
 })();
 
+// ——— Show signed-in email on main page (from Auth0 redirect) ———
+(function signedInEmail() {
+  var bar = document.getElementById("signed-in-bar");
+  var emailEl = document.getElementById("signed-in-email");
+  var signOutLink = document.getElementById("sign-out-link");
+  if (!bar || !emailEl) return;
+
+  try {
+    var email = localStorage.getItem("phantom-user-email");
+    var name = localStorage.getItem("phantom-user-name");
+    if (email) {
+      emailEl.textContent = name ? name + " (" + email + ")" : email;
+      bar.style.display = "flex";
+    }
+  } catch (e) {}
+
+  if (signOutLink) {
+    signOutLink.addEventListener("click", function () {
+      try {
+        localStorage.removeItem("phantom-user-email");
+        localStorage.removeItem("phantom-user-name");
+      } catch (e) {}
+    });
+  }
+})();
+
 // ——— Policies popup (once per visit / acknowledged) ———
 function showPoliciesPopupIfNeeded() {
   var POLICIES_KEY = "phantom-policies-ack";
