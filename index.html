@@ -12,17 +12,17 @@
     <div class="signin-wrap">
       <h1 class="title title-phantom">Phantom Learning</h1>
 
-      <div id="loading" class="loading-state" role="status" aria-live="polite">
-        <div class="signin-loading-text">Loading...</div>
+      <div id="loading" class="loading-state" role="status" aria-live="polite" style="display:block">
+        <div class="signin-loading-text">Loading…</div>
       </div>
 
-      <div id="error" class="error-state" style="display: none;">
+      <div id="error" class="error-state" style="display:none;">
         <div class="error-title">Oops!</div>
         <div class="error-message">Something went wrong</div>
         <div id="error-details" class="error-sub-message"></div>
       </div>
 
-      <div id="app" class="signin-card" style="display: none;">
+      <div id="app" class="signin-card" style="display:none">
         <div id="logged-out" class="action-card">
           <p class="action-text">Get started by signing in to your account</p>
           <button id="login-btn" class="button login">Log in</button>
@@ -37,7 +37,6 @@
       </div>
     </div>
 
-    <script src="https://cdn.auth0.com/js/auth0/9.22/auth0.min.js"></script>
     <script>
       (function () {
         var base = window.location.pathname.replace(/\/[^/]*$/, "") || "/";
@@ -51,6 +50,7 @@
         };
       })();
     </script>
-    <script src="auth0-app.js"></script>
+    <script defer src="https://cdn.auth0.com/js/auth0/9.22/auth0.min.js"></script>
+    <script defer src="auth0-app.js"></script>
   </body>
 </html>

@@ -33,6 +33,7 @@
 
   setTimeout(function () {
     screen.classList.add("loading-done");
+    document.body.classList.add("loading-complete");
     showPoliciesPopupIfNeeded();
   }, 4700);
 })();
