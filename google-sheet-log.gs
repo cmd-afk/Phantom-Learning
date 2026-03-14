@@ -16,23 +16,25 @@ function doPost(e) {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var body = {};
-    if (e.postData && e.postData.contents) {
+    if (e && e.postData && e.postData.contents) {
       body = JSON.parse(e.postData.contents);
     }
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(["Timestamp", "Email", "Name", "Blocked"]);
-    } else if (sheet.getLastColumn() < 4) {
-      sheet.getRange(1, 4).setValue("Blocked");
+    if (body.email || body.name) {
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow(["Timestamp", "Email", "Name", "Blocked"]);
+      } else if (sheet.getLastColumn() < 4) {
+        sheet.getRange(1, 4).setValue("Blocked");
+      }
+      var blockedVal = body.blocked;
+      var blocked = blockedVal === true || blockedVal === "true" || blockedVal === "Yes" || String(blockedVal).toLowerCase() === "yes";
+      var row = [
+        body.time || new Date().toISOString(),
+        body.email || "",
+        body.name || "",
+        blocked ? "Yes" : "No"
+      ];
+      sheet.appendRow(row);
     }
-    var blockedVal = body.blocked;
-    var blocked = blockedVal === true || blockedVal === "true" || blockedVal === "Yes" || String(blockedVal).toLowerCase() === "yes";
-    var row = [
-      body.time || new Date().toISOString(),
-      body.email || "",
-      body.name || "",
-      blocked ? "Yes" : "No"
-    ];
-    sheet.appendRow(row);
     return ContentService.createTextOutput(JSON.stringify({ ok: true }))
       .setMimeType(ContentService.MimeType.JSON);
   } catch (err) {
